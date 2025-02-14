@@ -1,0 +1,22 @@
+{
+  "devDependencies": {
+    "@nestjs/cli": "^11.0.2",
+    "nodemon": "^3.1.9",
+    "prisma": "^6.3.1",
+    "ts-node": "^10.9.2"
+  },
+  "dependencies": {
+    "@apollo/server": "^4.11.3",
+    "@nestjs/apollo": "^13.0.2",
+    "@nestjs/config": "^4.0.0",
+    "@nestjs/graphql": "^13.0.2",
+    "@nestjs/jwt": "^11.0.0",
+    "@nestjs/passport": "^11.0.5",
+    "@nestjs/platform-express": "^11.0.9",
+    "@prisma/client": "^6.3.1",
+    "bcryptjs": "^3.0.0",
+    "graphql": "^16.10.0",
+    "passport": "^0.7.0",
+    "passport-jwt": "^4.0.1"
+  }
+}
