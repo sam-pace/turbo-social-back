@@ -13,7 +13,7 @@ export class TurboMarketResolver {
     return this.turboMarketService.create(data);
   }
 
-  @Query(() => [TurboMarket], { name: 'turboMarket' })
+  @Query(() => [TurboMarket], { name: 'turboMarketAll' })
   findAll() {
     return this.turboMarketService.findAll();
   }

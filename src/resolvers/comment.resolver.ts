@@ -10,7 +10,7 @@ export class CommentResolver {
 
   @Mutation(() => Comment)
   createComment(
-    @Args('createCommentInput') createCommentInput: CreateCommentInput,
+    @Args('createComment') createCommentInput: CreateCommentInput,
   ) {
     return this.commentService.create(createCommentInput);
   }
@@ -22,7 +22,7 @@ export class CommentResolver {
       return this.commentService.createMany(data);
     }
 
-  @Query(() => [Comment], { name: 'comment' })
+  @Query(() => [Comment], { name: 'comments' })
   findAll() {
     return this.commentService.findAll();
   }
@@ -34,7 +34,7 @@ export class CommentResolver {
 
   @Mutation(() => Comment)
   updateComment(
-    @Args('updateCommentInput') updateCommentInput: UpdateCommentInput,
+    @Args('updateComment') updateCommentInput: UpdateCommentInput,
   ) {
     return this.commentService.update(
       updateCommentInput.id,

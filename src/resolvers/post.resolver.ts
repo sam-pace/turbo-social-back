@@ -9,11 +9,11 @@ export class PostResolver {
   constructor(private readonly postService: PostService) {}
 
   @Mutation(() => Post)
-  createPost(@Args('createPostInput') createPostInput: CreatePostInput) {
+  createPost(@Args('createPost') createPostInput: CreatePostInput) {
     return this.postService.create(createPostInput);
   }
 
-  @Query(() => [Post], { name: 'post' })
+  @Query(() => [Post], { name: 'postAll' })
   findAll() {
     return this.postService.findAll();
   }
@@ -25,7 +25,7 @@ export class PostResolver {
   
 
   @Mutation(() => Post)
-  updatePost(@Args('updatePostInput') updatePostInput: UpdatePostInput) {
+  updatePost(@Args('updatePost') updatePostInput: UpdatePostInput) {
     return this.postService.update(updatePostInput.id, updatePostInput);
   }
 
