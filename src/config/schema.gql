@@ -60,9 +60,9 @@ A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date
 scalar DateTime
 
 type Mutation {
-  createComment(createCommentInput: CreateCommentInput!): Comment!
+  createComment(createComment: CreateCommentInput!): Comment!
   createMany(data: [CreateCommentInput!]!): [Comment!]!
-  createPost(createPostInput: CreatePostInput!): Post!
+  createPost(createPost: CreatePostInput!): Post!
   createTurboMarket(data: CreateTurboMarketInput!): TurboMarket!
   createUser(data: CreateUserInput!): User!
   registerMany(data: [CreateUserInput!]!): [User!]!
@@ -70,8 +70,8 @@ type Mutation {
   removePost(id: String!): Post!
   removeTurboMarket(id: String!): TurboMarket!
   removeUser(id: String!): User!
-  updateComment(updateCommentInput: UpdateCommentInput!): Comment!
-  updatePost(updatePostInput: UpdatePostInput!): Post!
+  updateComment(updateComment: UpdateCommentInput!): Comment!
+  updatePost(updatePost: UpdatePostInput!): Post!
   updateTurboMarket(updateTurboMarketInput: UpdateTurboMarketInput!): TurboMarket!
   updateUser(updateUserInput: UpdateUserInput!): User!
 }
@@ -90,8 +90,11 @@ type Post {
 
 type Query {
   comment(id: String!): Comment!
+  comments: [Comment!]!
   post(id: String!): Post!
+  postAll: [Post!]!
   turboMarket(id: String!): TurboMarket!
+  turboMarketAll: [TurboMarket!]!
   users: [User!]!
 }
 
