@@ -5,6 +5,10 @@
     "prisma": "^6.3.1",
     "ts-node": "^10.9.2"
   },
+  "scripts": {
+    "start": "nest start",
+    "start:dev": "npx nodemon"
+  },
   "dependencies": {
     "@apollo/server": "^4.11.3",
     "@nestjs/apollo": "^13.0.2",
