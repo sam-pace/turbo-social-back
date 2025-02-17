@@ -41,7 +41,7 @@ export class PostService {
       where: { id: id },
       data: {
         content: updatePostInput.content,
-        userId: updatePostInput.userId,
+        likes: updatePostInput.likes
       },
     });
   }
