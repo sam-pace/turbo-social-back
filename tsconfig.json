@@ -10,6 +10,15 @@
     "sourceMap": true,
     "outDir": "./dist",
     "baseUrl": "./",
+    "paths": {
+      "@models/*": ["src/models/*"],
+      "@controllers/*": ["src/controllers/*"],
+      "@utils/*": ["src/utils/*"],
+      "@services/*": ["src/services/*"],
+      "@resolvers/*": ["src/resolvers/*"],
+      "@dtos/*": ["src/dtos/*"],
+
+    },
     "incremental": true,
     "skipLibCheck": true,
     "strictNullChecks": true,

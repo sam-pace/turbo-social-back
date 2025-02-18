@@ -1,8 +1,8 @@
 import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
 import { TurboMarketService } from 'src/services/turbo-market.service';
-import { TurboMarket } from '../models/turbo-market.model';
-import { CreateTurboMarketInput } from '../dtos/create-turbo-market.input';
-import { UpdateTurboMarketInput } from '../dtos/update-turbo-market.input';
+import { TurboMarket } from '@models/turbo-market.model';
+import { CreateTurboMarketInput } from '@dtos/create-turbo-market.input';
+import { UpdateTurboMarketInput } from '@dtos/update-turbo-market.input';
 
 @Resolver(() => TurboMarket)
 export class TurboMarketResolver {

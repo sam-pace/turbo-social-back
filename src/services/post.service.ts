@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { CreatePostInput } from '../dtos/create-post.input';
-import { UpdatePostInput } from '../dtos/update-post.input';
+import { CreatePostInput } from '@dtos/create-post.input';
+import { UpdatePostInput } from '@dtos/update-post.input';
 import { PrismaService } from './prisma/prisma.service';
 import { Post } from '@prisma/client';
 
@@ -41,7 +41,7 @@ export class PostService {
       where: { id: id },
       data: {
         content: updatePostInput.content,
-        likes: updatePostInput.likes
+        likes: updatePostInput.likes,
       },
     });
   }

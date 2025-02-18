@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { CreateTurboMarketInput } from '../dtos/create-turbo-market.input';
-import { UpdateTurboMarketInput } from '../dtos/update-turbo-market.input';
+import { CreateTurboMarketInput } from '@dtos/create-turbo-market.input';
+import { UpdateTurboMarketInput } from '@dtos/update-turbo-market.input';
 import { PrismaService } from './prisma/prisma.service';
 
 @Injectable()

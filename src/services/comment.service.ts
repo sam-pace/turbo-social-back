@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { CreateCommentInput } from '../dtos/create-comment.input';
-import { UpdateCommentInput } from '../dtos/update-comment.input';
+import { CreateCommentInput } from '@dtos/create-comment.input';
+import { UpdateCommentInput } from '@dtos/update-comment.input';
 import { PrismaService } from './prisma/prisma.service';
 import { Comment } from '@prisma/client';
 

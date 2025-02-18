@@ -35,21 +35,17 @@ input CreateTurboMarketInput {
   id: ID!
   imageUrl: String
   location: String!
-  mileage: Float!
+  mileage: String!
   model: String!
   price: Float!
   title: String!
   transmission: String!
   userId: String!
-  year: Float!
+  year: String!
 }
 
 input CreateUserInput {
-  avatarUrl: String
-  bio: String
-  createdAt: DateTime!
   email: String!
-  id: ID!
   password: String!
   username: String!
 }
@@ -59,12 +55,20 @@ A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date
 """
 scalar DateTime
 
+type LoginResponse {
+  accessToken: String!
+  message: String!
+  refreshToken: String!
+}
+
 type Mutation {
   createComment(createComment: CreateCommentInput!): Comment!
   createMany(data: [CreateCommentInput!]!): [Comment!]!
   createPost(createPost: CreatePostInput!): Post!
   createTurboMarket(data: CreateTurboMarketInput!): TurboMarket!
   createUser(data: CreateUserInput!): User!
+  login(userLogin: UserLogin!): LoginResponse!
+  refreshToken(refreshToken: String!): String!
   registerMany(data: [CreateUserInput!]!): [User!]!
   removeComment(id: String!): Comment!
   removePost(id: String!): Post!
@@ -137,19 +141,16 @@ input UpdateTurboMarketInput {
   id: ID!
   imageUrl: String
   location: String
-  mileage: Float
+  mileage: String
   model: String
   price: Float
   title: String
   transmission: String
   userId: String
-  year: Float
+  year: String
 }
 
 input UpdateUserInput {
-  avatarUrl: String
-  bio: String
-  createdAt: DateTime
   email: String
   id: ID!
   password: String
@@ -161,9 +162,14 @@ type User {
   bio: String
   comments: [Comment!]!
   createdAt: DateTime!
-  email: String!
+  email: String
   id: ID!
   password: String!
   posts: [Post!]!
+  username: String!
+}
+
+input UserLogin {
+  password: String!
   username: String!
 }

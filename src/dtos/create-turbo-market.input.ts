@@ -24,10 +24,10 @@ export class CreateTurboMarketInput {
   model: string;
 
   @Field()
-  year: number;
+  year: string;
 
   @Field()
-  mileage: number;
+  mileage: string;
 
   @Field()
   fuelType: string;
