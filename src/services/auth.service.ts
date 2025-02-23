@@ -42,7 +42,7 @@ export class AuthService {
           { sub: userData.id, username: userData.username },
           {
             secret: this.configService.get<string>('JWT_SECRET'),
-            expiresIn: '2m',
+            expiresIn: '10m',
           },
         );
 
@@ -63,12 +63,12 @@ export class AuthService {
 
     const accessToken = this.jwtService.sign(payload, {
       secret: this.configService.get<string>('JWT_SECRET'),
-      expiresIn: '2m',
+      expiresIn: '10m',
     });
 
     const refreshToken = this.jwtService.sign(payload, {
       secret: this.configService.get<string>('JWT_REFRESH_SECRET'),
-      expiresIn: '2m',
+      expiresIn: '7d',
     });
 
 
