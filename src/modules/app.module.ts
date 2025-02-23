@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { APP_INTERCEPTOR } from '@nestjs/core';
-import { AppController } from '@controllers/app.controller';
+import { AppController, HealthController } from '@controllers/app.controller';
 import { AppService } from '@services/app.service';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
@@ -31,7 +31,7 @@ import { authModule } from './auth.module';
     CommentModule,
     authModule,
   ],
-  controllers: [AppController],
+  controllers: [AppController, HealthController],
   providers: [
     AppService,
     UserResolver,
