@@ -1,4 +1,6 @@
 import { ObjectType, Field, ID } from '@nestjs/graphql';
+import { User } from './user.model';
+import { UserProfile } from './user-profile';
 
 @ObjectType()
 export class TurboMarket {
@@ -7,6 +9,9 @@ export class TurboMarket {
 
   @Field()
   userId: string;
+
+  @Field(() => UserProfile)
+  user: UserProfile
 
   @Field()
   title: string;

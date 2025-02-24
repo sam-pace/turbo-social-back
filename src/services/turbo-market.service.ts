@@ -12,11 +12,24 @@ export class TurboMarketService {
   }
 
   findAll() {
-    return this.prisma.turboMarket.findMany();
+    return this.prisma.turboMarket.findMany({
+      include: {
+        user: {
+          select: { username: true, avatarUrl: true },
+        },
+      },
+    });
   }
 
   findOne(id: string) {
-    return this.prisma.turboMarket.findUnique({ where: { id: id } });
+    return this.prisma.turboMarket.findUnique({
+      where: { id: id },
+      include: {
+        user: {
+          select: { username: true, avatarUrl: true },
+        },
+      },
+    });
   }
 
   update(id: string, updateTurboMarketInput: UpdateTurboMarketInput) {

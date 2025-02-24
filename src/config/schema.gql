@@ -114,6 +114,7 @@ type TurboMarket {
   price: Float!
   title: String!
   transmission: String!
+  user: UserProfile!
   userId: String!
   year: Float!
 }
@@ -171,5 +172,10 @@ type User {
 
 input UserLogin {
   password: String!
+  username: String!
+}
+
+type UserProfile {
+  avatarUrl: String
   username: String!
 }
