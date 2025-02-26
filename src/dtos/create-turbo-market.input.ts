@@ -12,7 +12,7 @@ export class CreateTurboMarketInput {
   description: string;
 
   @Field()
-  price: number;
+  price: string;
 
   @Field()
   brand: string;

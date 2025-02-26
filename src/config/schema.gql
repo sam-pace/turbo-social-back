@@ -15,14 +15,12 @@ type Comment {
 input CreateCommentInput {
   content: String!
   createdAt: DateTime!
-  id: ID!
   postId: String!
   userId: String!
 }
 
 input CreatePostInput {
   content: String!
-  id: ID!
   imageUrl: String!
   likes: Int!
   userId: String!
@@ -32,12 +30,11 @@ input CreateTurboMarketInput {
   brand: String!
   description: String!
   fuelType: String!
-  id: ID!
   imageUrl: String
   location: String!
   mileage: String!
   model: String!
-  price: Float!
+  price: String!
   title: String!
   transmission: String!
   userId: String!
@@ -109,14 +106,14 @@ type TurboMarket {
   id: ID!
   imageUrl: String
   location: String!
-  mileage: Float!
+  mileage: String!
   model: String!
-  price: Float!
+  price: String!
   title: String!
   transmission: String!
   user: UserProfile!
   userId: String!
-  year: Float!
+  year: String!
 }
 
 input UpdateCommentInput {
@@ -144,7 +141,7 @@ input UpdateTurboMarketInput {
   location: String
   mileage: String
   model: String
-  price: Float
+  price: String
   title: String
   transmission: String
   userId: String
