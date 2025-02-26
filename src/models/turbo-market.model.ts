@@ -20,7 +20,7 @@ export class TurboMarket {
   description: string;
 
   @Field()
-  price: number;
+  price: string;
 
   @Field()
   brand: string;
@@ -29,10 +29,10 @@ export class TurboMarket {
   model: string;
 
   @Field()
-  year: number;
+  year: string;
 
   @Field()
-  mileage: number;
+  mileage: string;
 
   @Field()
   fuelType: string;

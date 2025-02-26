@@ -2,9 +2,6 @@ import { InputType, Field, ID } from '@nestjs/graphql';
 
 @InputType()
 export class CreateTurboMarketInput {
-  @Field(() => ID)
-  id: string;
-
   @Field()
   userId: string;
 
