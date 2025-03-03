@@ -42,6 +42,7 @@ input CreateTurboMarketInput {
 }
 
 input CreateUserInput {
+  avatarUrl: String
   email: String!
   password: String!
   username: String!
@@ -96,6 +97,7 @@ type Query {
   postAll: [Post!]!
   turboMarket(id: String!): TurboMarket!
   turboMarketAll: [TurboMarket!]!
+  user(id: String!): User!
   users: [User!]!
 }
 
@@ -149,6 +151,7 @@ input UpdateTurboMarketInput {
 }
 
 input UpdateUserInput {
+  avatarUrl: String
   email: String
   id: ID!
   password: String

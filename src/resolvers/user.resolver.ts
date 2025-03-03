@@ -8,6 +8,11 @@ import { UpdateUserInput } from 'src/dtos/update-user.input';
 export class UserResolver {
   constructor(private readonly userService: UserService) {}
 
+  @Query(() => User, { name: 'user' })
+  findOne(@Args('id', { type: () => String }) id: string) {
+    return this.userService.findOne(id);
+  }
+
   @Query(() => [User])
   async users() {
     return this.userService.findAll();
