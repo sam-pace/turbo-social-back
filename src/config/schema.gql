@@ -3,6 +3,7 @@
 # ------------------------------------------------------
 
 type Comment {
+  avatarUrl: String
   content: String!
   createdAt: DateTime!
   id: ID!
@@ -10,6 +11,7 @@ type Comment {
   postId: String!
   user: User!
   userId: String!
+  username: String
 }
 
 input CreateCommentInput {

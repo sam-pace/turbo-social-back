@@ -1,40 +1,40 @@
-import { InputType, Field, ID } from '@nestjs/graphql';
+import { InputType, Field, ID } from '@nestjs/graphql'
 
 @InputType()
 export class CreateTurboMarketInput {
   @Field()
-  userId: string;
+  userId: string
 
   @Field()
-  title: string;
+  title: string
 
   @Field()
-  description: string;
+  description: string
 
   @Field()
-  price: string;
+  price: string
 
   @Field()
-  brand: string;
+  brand: string
 
   @Field()
-  model: string;
+  model: string
 
   @Field()
-  year: string;
+  year: string
 
   @Field()
-  mileage: string;
+  mileage: string
 
   @Field()
-  fuelType: string;
+  fuelType: string
 
   @Field()
-  transmission: string;
+  transmission: string
 
   @Field({ nullable: true })
-  imageUrl?: string;
+  imageUrl?: string
 
   @Field()
-  location: string;
+  location: string
 }

@@ -1,48 +1,48 @@
-import { ObjectType, Field, ID } from '@nestjs/graphql';
-import { User } from './user.model';
-import { UserProfile } from './user-profile';
+import { ObjectType, Field, ID } from '@nestjs/graphql'
+import { User } from './user.model'
+import { UserProfile } from './user-profile'
 
 @ObjectType()
 export class TurboMarket {
   @Field(() => ID)
-  id: string;
+  id: string
 
   @Field()
-  userId: string;
+  userId: string
 
   @Field(() => UserProfile)
   user: UserProfile
 
   @Field()
-  title: string;
+  title: string
 
   @Field()
-  description: string;
+  description: string
 
   @Field()
-  price: string;
+  price: string
 
   @Field()
-  brand: string;
+  brand: string
 
   @Field()
-  model: string;
+  model: string
 
   @Field()
-  year: string;
+  year: string
 
   @Field()
-  mileage: string;
+  mileage: string
 
   @Field()
-  fuelType: string;
+  fuelType: string
 
   @Field()
-  transmission: string;
+  transmission: string
 
   @Field({ nullable: true })
-  imageUrl?: string;
+  imageUrl?: string
 
   @Field()
-  location: string;
+  location: string
 }

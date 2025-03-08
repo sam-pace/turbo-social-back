@@ -1,18 +1,17 @@
-import { InputType, Int, Field, ID } from '@nestjs/graphql';
-import { CreateCommentInput } from './create-comment.input';
+import { InputType, Int, Field, ID } from '@nestjs/graphql'
+import { CreateCommentInput } from './create-comment.input'
 
 @InputType()
 export class CreatePostInput {
   @Field()
-  userId: string;
+  userId: string
 
   @Field()
-  content: string;
+  content: string
 
   @Field()
-  imageUrl?: string;
+  imageUrl?: string
 
   @Field(() => Int)
-  likes?: number;
-
+  likes?: number
 }

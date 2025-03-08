@@ -1,34 +1,33 @@
-import { ObjectType, Field, ID } from '@nestjs/graphql';
-import { Post } from './post.model';
-import { Comment } from './comment.model';
+import { ObjectType, Field, ID } from '@nestjs/graphql'
+import { Post } from './post.model'
+import { Comment } from './comment.model'
 
 @ObjectType()
 export class User {
-
   @Field(() => ID)
-  id: string;
+  id: string
 
   @Field()
-  username: string;
+  username: string
 
   @Field({ nullable: true })
-  email: string;
+  email: string
 
   @Field()
-  password: string;
+  password: string
 
   @Field({ nullable: true })
-  avatarUrl: string;
+  avatarUrl: string
 
   @Field({ nullable: true })
-  bio: string;
+  bio: string
 
   @Field()
-  createdAt: Date;
+  createdAt: Date
 
-  @Field(()=> [Comment])
-  comments: [Comment];
+  @Field(() => [Comment])
+  comments: [Comment]
 
-  @Field(()=> [Post])
-  posts: [Post];
+  @Field(() => [Post])
+  posts: [Post]
 }

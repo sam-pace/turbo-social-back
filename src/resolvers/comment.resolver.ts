@@ -1,8 +1,15 @@
-import { Resolver, Query, Mutation, Args } from '@nestjs/graphql';
-import { CommentService } from '@services/comment.service';
-import { Comment } from '@models/comment.model';
-import { CreateCommentInput } from '@dtos/create-comment.input';
-import { UpdateCommentInput } from '@dtos/update-comment.input';
+import {
+  Resolver,
+  Query,
+  Mutation,
+  Args,
+  Parent,
+  ResolveField,
+} from '@nestjs/graphql'
+import { CommentService } from '@services/comment.service'
+import { Comment } from '@models/comment.model'
+import { CreateCommentInput } from '@dtos/create-comment.input'
+import { UpdateCommentInput } from '@dtos/update-comment.input'
 
 @Resolver(() => Comment)
 export class CommentResolver {
@@ -10,37 +17,44 @@ export class CommentResolver {
 
   @Mutation(() => Comment)
   createComment(@Args('createComment') createCommentInput: CreateCommentInput) {
-    return this.commentService.create(createCommentInput);
+    return this.commentService.create(createCommentInput)
+  }
+
+  @ResolveField(() => String, { nullable: true })
+  async username(@Parent() comment: Comment) {
+    return comment.user?.username ?? null
+  }
+
+  @ResolveField(() => String, { nullable: true })
+  async avatarUrl(@Parent() comment: Comment) {
+    return comment.user?.avatarUrl ?? null
   }
 
   @Mutation(() => [Comment])
   async createMany(
     @Args('data', { type: () => [CreateCommentInput] })
-    data: CreateCommentInput[],
+    data: CreateCommentInput[]
   ) {
-    return this.commentService.createMany(data);
+    return this.commentService.createMany(data)
   }
 
   @Query(() => [Comment], { name: 'comments' })
   findAll() {
-    return this.commentService.findAll();
+    return this.commentService.findAll()
   }
 
   @Query(() => Comment, { name: 'comment' })
   findOne(@Args('id', { type: () => String }) id: string) {
-    return this.commentService.findOne(id);
+    return this.commentService.findOne(id)
   }
 
   @Mutation(() => Comment)
   updateComment(@Args('updateComment') updateCommentInput: UpdateCommentInput) {
-    return this.commentService.update(
-      updateCommentInput.id,
-      updateCommentInput,
-    );
+    return this.commentService.update(updateCommentInput.id, updateCommentInput)
   }
 
   @Mutation(() => Comment)
   removeComment(@Args('id', { type: () => String }) id: string) {
-    return this.commentService.remove(id);
+    return this.commentService.remove(id)
   }
 }

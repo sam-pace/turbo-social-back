@@ -1,10 +1,10 @@
-import { ObjectType, Field } from '@nestjs/graphql';
+import { ObjectType, Field } from '@nestjs/graphql'
 
 @ObjectType()
 export class UserProfile {
   @Field()
-  username: string;
+  username: string
 
   @Field({ nullable: true })
-  avatarUrl?: string;
+  avatarUrl?: string
 }

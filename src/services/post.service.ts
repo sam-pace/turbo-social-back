@@ -1,8 +1,7 @@
-import { Injectable } from '@nestjs/common';
-import { CreatePostInput } from '@dtos/create-post.input';
-import { UpdatePostInput } from '@dtos/update-post.input';
-import { PrismaService } from './prisma/prisma.service';
-import { Post } from '@prisma/client';
+import { Injectable } from '@nestjs/common'
+import { CreatePostInput } from '@dtos/create-post.input'
+import { UpdatePostInput } from '@dtos/update-post.input'
+import { PrismaService } from './prisma/prisma.service'
 
 @Injectable()
 export class PostService {
@@ -16,13 +15,24 @@ export class PostService {
         imageUrl: createPostInput.imageUrl,
         likes: createPostInput.likes ?? 0,
       },
-    });
+    })
 
-    return newPost;
+    return newPost
   }
 
   findAll() {
-    return this.prisma.post.findMany({ include: { comments: true } });
+    return this.prisma.post.findMany({
+      include: {
+        comments: true,
+        user: {
+          select: {
+            id: true,
+            username: true,
+            avatarUrl: true,
+          },
+        },
+      },
+    })
   }
 
   findOne(id: string) {
@@ -32,8 +42,15 @@ export class PostService {
       },
       include: {
         comments: true,
+        user: {
+          select: {
+            id: true,
+            username: true,
+            avatarUrl: true,
+          },
+        },
       },
-    });
+    })
   }
 
   update(id: string, updatePostInput: UpdatePostInput) {
@@ -43,10 +60,10 @@ export class PostService {
         content: updatePostInput.content,
         likes: updatePostInput.likes,
       },
-    });
+    })
   }
 
   remove(id: string) {
-    return this.prisma.post.delete({ where: { id: id } });
+    return this.prisma.post.delete({ where: { id: id } })
   }
 }
