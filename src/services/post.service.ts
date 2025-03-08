@@ -22,7 +22,7 @@ export class PostService {
   }
 
   findAll() {
-    return this.prisma.post.findMany();
+    return this.prisma.post.findMany({ include: { comments: true } });
   }
 
   findOne(id: string) {
