@@ -95,6 +95,7 @@ type Post {
 type Query {
   comment(id: String!): Comment!
   comments: [Comment!]!
+  commentsByPost(postId: String!): [Comment!]!
   post(id: String!): Post!
   postAll: [Post!]!
   turboMarket(id: String!): TurboMarket!

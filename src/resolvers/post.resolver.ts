@@ -1,6 +1,7 @@
 import { Resolver, Query, Mutation, Args } from '@nestjs/graphql'
 import { PostService } from '@services/post.service'
 import { Post } from '@models/post.model'
+import { Comment } from '@models/comment.model'
 import { CreatePostInput } from '@dtos/create-post.input'
 import { UpdatePostInput } from '@dtos/update-post.input'
 import { CommentService } from '@services/comment.service'
