@@ -9,10 +9,12 @@ export class CommentService {
   constructor(private prisma: PrismaService) {}
 
   async create(createCommentInput: CreateCommentInput) {
-    const newComment = await this.prisma.post.create({
+    const newComment = await this.prisma.comment.create({
       data: {
         content: createCommentInput.content,
         userId: createCommentInput.userId,
+        postId: createCommentInput.postId,
+        createdAt: createCommentInput.createdAt,
       },
     })
     return newComment
