@@ -25,6 +25,9 @@ export class Post {
   @Field(() => Int)
   likes: number
 
+  @Field(() => Boolean)
+  isLiked: boolean
+
   @Field()
   createdAt: Date
 

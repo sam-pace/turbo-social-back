@@ -67,6 +67,7 @@ type Mutation {
   createPost(createPost: CreatePostInput!): Post!
   createTurboMarket(data: CreateTurboMarketInput!): TurboMarket!
   createUser(data: CreateUserInput!): User!
+  handleLikes(updatePost: UpdatePostInput!): Post!
   login(userLogin: UserLogin!): LoginResponse!
   refreshToken(refreshToken: String!): String!
   registerMany(data: [CreateUserInput!]!): [User!]!
@@ -86,6 +87,7 @@ type Post {
   createdAt: DateTime!
   id: ID!
   imageUrl: String!
+  isLiked: Boolean!
   likes: Int!
   updatedAt: DateTime!
   user: User!
@@ -97,7 +99,7 @@ type Query {
   comments: [Comment!]!
   commentsByPost(postId: String!): [Comment!]!
   post(id: String!): Post!
-  postAll: [Post!]!
+  postAll(userId: String): [Post!]!
   turboMarket(id: String!): TurboMarket!
   turboMarketAll: [TurboMarket!]!
   user(id: String!): User!
