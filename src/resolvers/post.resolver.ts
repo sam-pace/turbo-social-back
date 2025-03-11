@@ -24,8 +24,8 @@ export class PostResolver {
   }
 
   @Query(() => [Post], { name: 'postAll' })
-  findAll() {
-    return this.postService.findAll()
+  async findAll(@Args('userId', { nullable: true }) userId?: string) {
+    return this.postService.findAll(userId);
   }
 
   @Query(() => Post, { name: 'post' })
@@ -36,6 +36,13 @@ export class PostResolver {
   @Mutation(() => Post)
   updatePost(@Args('updatePost') updatePostInput: UpdatePostInput) {
     return this.postService.update(updatePostInput.id, updatePostInput)
+  }
+
+  @Mutation(() => Post)
+  async handleLikes(
+    @Args('updatePost') updatePostInput: UpdatePostInput,
+  ) {
+    return this.postService.toggleLike(updatePostInput.id, updatePostInput.userId);
   }
 
   @Mutation(() => Post)

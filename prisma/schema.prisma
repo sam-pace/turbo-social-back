@@ -20,6 +20,8 @@ model User {
   posts        Post[]
   RefreshToken RefreshToken?
   TurboMarket  TurboMarket[]
+  Like Like[]
+  likedPosts Post[]    @relation("PostLikedBy")
 }
 
 model Post {
@@ -32,6 +34,18 @@ model Post {
   updatedAt DateTime  @updatedAt
   comments  Comment[]
   user      User      @relation(fields: [userId], references: [id])
+  likesList Like[]
+  likedBy   User[]    @relation("PostLikedBy")
+}
+
+model Like {
+  id     String @id @default(uuid())
+  userId String
+  postId String
+  user   User   @relation(fields: [userId], references: [id])
+  post   Post   @relation(fields: [postId], references: [id])
+
+  @@unique([userId, postId])
 }
 
 model Comment {
